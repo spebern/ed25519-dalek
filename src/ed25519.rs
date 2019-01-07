@@ -914,7 +914,7 @@ impl From<ExpandedSecretKey> for PublicKey {
 /// * `messages` is a slice of byte slices, one per signed message.
 /// * `signatures` is a slice of `Signature`s.
 /// * `public_keys` is a slice of `PublicKey`s.
-/// * `csprng` is an implementation of `Rng + CryptoRng`, such as `rand::ThreadRng`.
+/// * `csprng` is an implementation of `Rng + CryptoRng`, such as `rand::rngs::ThreadRng`.
 ///
 /// # Panics
 ///
@@ -939,7 +939,7 @@ impl From<ExpandedSecretKey> for PublicKey {
 /// use ed25519_dalek::PublicKey;
 /// use ed25519_dalek::Signature;
 /// use rand::thread_rng;
-/// use rand::ThreadRng;
+/// use rand::prelude::*;
 /// use sha2::Sha512;
 ///
 /// # fn main() {
@@ -1184,7 +1184,7 @@ impl Keypair {
     /// use ed25519_dalek::Keypair;
     /// use ed25519_dalek::Signature;
     /// use rand::thread_rng;
-    /// use rand::ThreadRng;
+    /// use rand::prelude::*;
     /// use sha2::Sha512;
     ///
     /// # #[cfg(all(feature = "std", feature = "sha2"))]
@@ -1232,7 +1232,7 @@ impl Keypair {
     /// # use ed25519_dalek::Keypair;
     /// # use ed25519_dalek::Signature;
     /// # use rand::thread_rng;
-    /// # use rand::ThreadRng;
+    /// # use rand::prelude::*;
     /// # use sha2::Sha512;
     /// #
     /// # #[cfg(all(feature = "std", feature = "sha2"))]
@@ -1295,7 +1295,7 @@ impl Keypair {
     /// use ed25519_dalek::Keypair;
     /// use ed25519_dalek::Signature;
     /// use rand::thread_rng;
-    /// use rand::ThreadRng;
+    /// use rand::prelude::*;
     /// use sha2::Sha512;
     ///
     /// # #[cfg(all(feature = "std", feature = "sha2"))]
@@ -1382,7 +1382,7 @@ mod test {
     use rand::thread_rng;
     use rand::ChaChaRng;
     use rand::SeedableRng;
-    use rand::ThreadRng;
+    use rand::prelude::*;
     use hex::FromHex;
     use sha2::Sha512;
     use super::*;
